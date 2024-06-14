@@ -30,14 +30,24 @@ def del_book():
 
 def list_books():
     books = Book.get_all()
-    for book in books:
-        print(f"Available books in catalogue \n {book}")
+    if not books:
+        print("No books available in the catalogue.")
+    else:
+        print("Available books in catalogue:")
+        for book in books:
+            print(book)
 
 
 def search_bookname():
-    name =input("Search book by name here....")
-    book = Book.find_by_name(name)
-    print (f"{book}")
+    name_prefix = input("Enter the starting letters of the book name: ")
+    books = [book for book in Book.get_all() if book.name.startswith(name_prefix)]
+    if books:
+        print("Books matching the search:")
+        for book in books:
+            print(book)
+    else:
+        print("No books found matching the search criteria.")
+
 
 def purchase_book():
     name =input("Enter name of book to purchase here....")
@@ -70,14 +80,24 @@ def del_magazine():
 
 def list_magazine():
     magazines = Magazine.get_all()
-    for magazine in magazines:
-        print(f"Available magazines in catalogue \n {magazine}")
+    if not magazines:
+        print("No magazines available in the catalogue.")
+    else:
+        print("Available magazines in catalogue:")
+        for magazine in magazines:
+            print(magazine)
 
 
 def search_magazinename():
-    name =input("Search magazine by name here.....")
-    magazine = Magazine.find_by_name(name)
-    print (f"{magazine}")
+    name_prefix = input("Enter the starting letters of the magazine name: ")
+    magazines = [magazine for magazine in Magazine.get_all() if magazine.name.startswith(name_prefix)]
+    if magazines:
+        print("Magazines matching the search:")
+        for magazine in magazines:
+            print(magazine)
+    else:
+        print("No magazines found matching the search criteria.")
+
 
 def purchase_magazine():
     name =input("Search name of magazine to purchase here.....")
@@ -107,15 +127,25 @@ def del_movie():
         print(f"{_name_} not found in catalogue")
 
 
-def list_movies():
+def list_movie():
     movies = Movie.get_all()
-    for movie in movies:
-        print(f"Available movies in catalogue \n {movie}")
+    if not movies:
+        print("No movies available in the catalogue.")
+    else:
+        print("Available movies in catalogue:")
+        for movie in movies:
+            print(movie)
 
 def search_moviename():
-    name =input("Search movie by name here.....")
-    movie = Movie.find_by_name(name)
-    print (f"{movie}")
+    name_prefix = input("Enter the starting letters of the movie name: ")
+    movies = [movie for movie in Movie.get_all() if movie.name.startswith(name_prefix)]
+    if movies:
+        print("Movies matching the search:")
+        for movie in movies:
+            print(movie)
+    else:
+        print("No movies found matching the search criteria.")
+
 
 def purchase_movie():
     name =input("Search name of movie to purchase here.....")
@@ -148,13 +178,22 @@ def del_music():
 
 def list_music():
     musics = Music.get_all()
-    for music in musics:
-        print(f"Available music in catalogue \n {music}")
+    if not musics:
+        print("No music available in the catalogue.")
+    else:
+        print("Available music in catalogue:")
+        for music in musics:
+            print(music)
 
 def search_musicname():
-    name =input("Search music by name here.....")
-    music = Music.find_by_name(name)
-    print (f"{music}")
+    name_prefix = input("Enter the starting letters of the music name: ")
+    music = Music.find_by_name_prefix(name_prefix)
+    if music:
+        print("Music matching the search:")
+        print(music)
+    else:
+        print("No music found matching the search criteria.")
+
 
 def purchase_music():
     name =input("Search name of music to purchase here.....")
