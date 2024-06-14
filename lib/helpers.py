@@ -32,6 +32,7 @@ def list_books():
     for book in books:
         print(f"Available books in catalogue \n {book}")
 
+
 def search_bookname():
     name =input("Search book by name here....")
     book = Book.find_by_name(name)
@@ -69,6 +70,7 @@ def list_magazine():
     magazines = Magazine.get_all()
     for magazine in magazines:
         print(f"Available magazines in catalogue \n {magazine}")
+
 
 def search_magazinename():
     name =input("Search magazine by name here.....")
