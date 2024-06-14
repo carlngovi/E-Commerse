@@ -1,7 +1,7 @@
 # lib/cli.py
 
 from helpers import (
-    
+
     add_book,
     del_book,
     list_books,
@@ -30,7 +30,7 @@ from helpers import (
 
 def main():
     print("Welcome, to E-Comm \nAn E-commerse platform")
-    print("Enter 1 to proceed and 98 to exit")
+    print("Enter any number to proceed and 98 to exit")
     choice =int(input("input choice...."))
     while choice != 98:
 

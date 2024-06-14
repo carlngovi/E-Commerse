@@ -127,7 +127,7 @@ def del_movie():
         print(f"{_name_} not found in catalogue")
 
 
-def list_movie():
+def list_movies():
     movies = Movie.get_all()
     if not movies:
         print("No movies available in the catalogue.")
