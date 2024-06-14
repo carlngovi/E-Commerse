@@ -23,9 +23,9 @@ def del_book():
     _name_ = input("Enter name for book to delete here....")
     if book := Book.find_by_name(_name_):
         book.delete()
-        print (f"Book: {_name_} deleted successfully")
+        print (f"{_name_} deleted successfully")
     else:
-        print(f"Book: {_name_} not found in catalogue")
+        print(f"{_name_} not found in catalogue")
 
 def list_books():
     books = Book.get_all()

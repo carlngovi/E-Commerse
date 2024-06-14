@@ -32,14 +32,16 @@ def main():
     print("Welcome, to E-Comm \nAn E-commerse platform")
     print("Enter 1 to proceed and 98 to exit")
     choice =int(input("input choice...."))
-    while choice != 98 :
+    while choice != 98:
+
+        menu()
 
         choice =int(input("input choice...."))
         if choice == 1:
-            book_menu()
+            print("***WELCOME TO THE BOOK CATALOGUE***")
             while choice != 6:
+                book_menu()
                 choice =int(input("input choice...."))
-                print("***WELCOME TO THE BOOK CATALOGUE***")
                 if choice == 1:
                     add_book()
                 elif choice == 2:
@@ -54,10 +56,10 @@ def main():
                     print("***returning***")
 
         elif choice == 2:
-            magazine_menu()
+            print("***WELCOME TO THE MAGAZINE CATALOGUE***")
             while choice != 6:
+                magazine_menu()
                 choice =int(input("input choice...."))
-                print("***WELCOME TO THE MAGAZINE CATALOGUE***")
                 if choice == 1:
                     add_magazine()
                 elif choice == 2:
@@ -72,10 +74,10 @@ def main():
                     print("***returning***")
 
         elif choice == 3:
-            movie_menu()
+            print("***WELCOME TO THE MOVIE CATALOGUE***")
             while choice != 6:
+                movie_menu()
                 choice =int(input("input choice...."))
-                print("***WELCOME TO THE MOVIE CATALOGUE***")
                 if choice == 1:
                     add_movie()
                 elif choice == 2:
@@ -90,10 +92,10 @@ def main():
                     print("***returning***")
 
         elif choice == 4:
-            music_menu()
+            print("***WELCOME TO THE MUSIC CATALOGUE***")
             while choice != 6:
+                music_menu()
                 choice =int(input("input choice...."))
-                print("***WELCOME TO THE MUSIC CATALOGUE***")
                 if choice == 1:
                     add_music()
                 elif choice == 2:
