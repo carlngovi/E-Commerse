@@ -5,8 +5,7 @@ from models.movies import Movie
 from models.music import Music
 
 
-def book_cat():
-    all = [] 
+
 
 def add_book():
     name = input("Enter name of book here....")
@@ -15,17 +14,19 @@ def add_book():
     price = float(input("Enter book price here...."))
     try:
         books = Book.create(name, author, pages, price)
-        print (f"Book: {books} added successfully")
+        print (f"Book: {books} added successfully to catalogue")
     except Exception as e:
        print(f"Error: {e}")
 
 def del_book():
     _name_ = input("Enter name for book to delete here....")
-    if book := Book.find_by_name(_name_):
+    book = Book.find_by_name(_name_)
+    if book:
         book.delete()
-        print (f"{_name_} deleted successfully")
+        print(f"{_name_} deleted successfully from catalogue")
     else:
         print(f"{_name_} not found in catalogue")
+
 
 def list_books():
     books = Book.get_all()
@@ -43,8 +44,7 @@ def purchase_book():
     book = Book.find_by_name(name)
     print (f"Purchasd {book.name} successfully for {book.price}")
 
-def magazine_cat():
-    all = [] 
+
 
 def add_magazine():
     name = input("Enter name of magazine here....")
@@ -53,17 +53,19 @@ def add_magazine():
     price = float(input("Enter magazine price price here...."))
     try:
        magazines = Magazine.create(name, publisher, year, price)
-       print(f"Success :{magazines} added successfully")
+       print(f"Success :{magazines} added successfully to catalogue")
     except Exception as e:
        print(f"Error: {e}")
 
 def del_magazine():
     _name_ = input("Enter name....")
-    if magazine := Magazine.find_by_name(_name_):
+    magazine = Magazine.find_by_name(_name_)
+    if magazine:
         magazine.delete()
-        print (f"Magazine: {_name_} deleted successfully")
+        print(f"{_name_} deleted successfully from catalogue")
     else:
-        print(f"Magazine: {_name_} not found in catalogue")
+        print(f"{_name_} not found in catalogue")
+
 
 
 def list_magazine():
@@ -82,8 +84,7 @@ def purchase_magazine():
     magazine = Magazine.find_by_name(name)
     print (f"Purchased {magazine.name} successfully for {magazine.price}")
 
-def movie_cat():
-    all = [] 
+
 
 def add_movie():
     name = input("Enter name of movie here....")
@@ -92,17 +93,19 @@ def add_movie():
     price = float(input("Enter movie price here...."))
     try:
         movie = Movie.create(name, genre, year, price)
-        print (f"Movie: {movie} added successfully")
+        print (f"Movie: {movie} added successfully to catalogue")
     except Exception as e:
        print(f"Error: {e}")
 
 def del_movie():
     _name_ = int(input)
-    if movie := Movie.find_by_name(_name_):
+    movie = Movie.find_by_name(_name_)
+    if movie:
         movie.delete()
-        print (f"Movie: {_name_} deleted succesfully")
+        print(f"{_name_} deleted successfully from catalogue")
     else:
-        print(f"Movie: {_name_}not found in catalogue")
+        print(f"{_name_} not found in catalogue")
+
 
 def list_movies():
     movies = Movie.get_all()
@@ -119,8 +122,7 @@ def purchase_movie():
     movie = Movie.find_by_name(name)
     print (f"Purchased {movie.name} successfully for {movie.price}")
 
-def music_cat():
-    all = []
+
 
 def add_music():
     name = input("Enter name of music here....")
@@ -130,17 +132,19 @@ def add_music():
     price = float(input("Enter music price here...."))
     try:
         music = Music.create(name, artist, genre, year, price)
-        print (f"Music: {music} added successfully")
+        print (f"Music: {music} added successfully to catalogue")
     except Exception as e:
        print(f"Error: {e}")
 
 def del_music():
     _name_ = int(input)
-    if music := Music.find_by_name(_name_):
+    music = Book.find_by_name(_name_)
+    if music:
         music.delete()
-        print (f"Music: {_name_} deleted successfully")
+        print(f"{_name_} deleted successfully from catalogue")
     else:
-        print(f"Music {_name_} not found in catalogue")
+        print(f"{_name_} not found in catalogue")
+
 
 def list_music():
     musics = Music.get_all()

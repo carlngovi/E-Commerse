@@ -83,10 +83,14 @@ class Movie():
             INSERT INTO movies (Name, Genre, Year, Price)
             VALUES (?, ?, ?, ?)
         """
-        CURSOR.execute(sql, (movie.name, movie.genre, movie.year, movie.price))
-        CONN.commit()
-        movie.id = CURSOR.lastrowid
-        type(movie).all[movie.id] = movie
+        try:
+            CURSOR.execute(sql, (movie.name, movie.author, movie.pages, movie.price))
+            CONN.commit()
+            movie.id = CURSOR.lastrowid
+            type(movie).all[movie.id] = movie
+        except Exception as e:
+            CONN.rollback()
+            print(f"Error saving movie: {e}")
 
     @classmethod
     def create(cls, name, genre, year, price):

@@ -82,10 +82,14 @@ class Book():
             INSERT INTO books (Name, Author, Pages, Price)
             VALUES (?, ?, ?, ?)
         """
-        CURSOR.execute(sql, (book.name, book.author, book.pages, book.price))
-        CONN.commit()
-        book.id = CURSOR.lastrowid
-        type(book).all[book.id] = book
+        try:
+            CURSOR.execute(sql, (book.name, book.author, book.pages, book.price))
+            CONN.commit()
+            book.id = CURSOR.lastrowid
+            type(book).all[book.id] = book
+        except Exception as e:
+            CONN.rollback()
+            print(f"Error saving book: {e}")
 
     @classmethod
     def create(cls, name, author, pages, price):
@@ -100,7 +104,7 @@ class Book():
         """
         CURSOR.execute(sql, (book.name,))
         CONN.commit()
-        del type(book).all[book.name]
+        del type(book).all[book.id]
     
 
     @classmethod

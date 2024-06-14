@@ -96,10 +96,14 @@ class Music():
             INSERT INTO music (Name, Artist, Genre, Year, Price)
             VALUES (?, ?, ?, ?, ?)
         """
-        CURSOR.execute(sql, (music.name, music.artist, music.genre, music.year, music.price))
-        CONN.commit()
-        music.id = CURSOR.lastrowid
-        type(music).all[music.id] = music
+        try:
+            CURSOR.execute(sql, (music.name, music.author, music.pages, music.price))
+            CONN.commit()
+            music.id = CURSOR.lastrowid
+            type(music).all[music.id] = music
+        except Exception as e:
+            CONN.rollback()
+            print(f"Error saving music: {e}")
 
     @classmethod
     def create(cls, name, artist, genre, year, price):

@@ -83,10 +83,14 @@ class Magazine():
             INSERT INTO magazines (Name, Publisher, Year, Price)
             VALUES (?, ?, ?, ?)
         """
-        CURSOR.execute(sql, (magazine.name, magazine.publisher, magazine.year, magazine.price))
-        CONN.commit()
-        magazine.id = CURSOR.lastrowid
-        type(magazine).all[magazine.id] = magazine
+        try:
+            CURSOR.execute(sql, (magazine.name, magazine.author, magazine.pages, magazine.price))
+            CONN.commit()
+            magazine.id = CURSOR.lastrowid
+            type(magazine).all[magazine.id] = magazine
+        except Exception as e:
+            CONN.rollback()
+            print(f"Error saving magazine: {e}")
 
     @classmethod
     def create(cls, name, publisher, year, price):

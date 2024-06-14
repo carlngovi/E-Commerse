@@ -1,25 +1,25 @@
 # lib/cli.py
 
 from helpers import (
-    book_cat,
+    
     add_book,
     del_book,
     list_books,
     search_bookname,
     purchase_book,
-    magazine_cat,
+
     add_magazine,
     del_magazine,
     list_magazine,
     search_magazinename,
     purchase_magazine,
-    movie_cat,
+
     add_movie,
     del_movie,
     list_movies,
     search_moviename,
     purchase_movie,
-    music_cat,
+
     add_music,
     del_music,
     list_music,
